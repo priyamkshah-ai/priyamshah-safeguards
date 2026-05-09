@@ -54,12 +54,15 @@ body{font-family:var(--body);background:var(--light);color:var(--dark);line-heig
 .hero-stat:last-child{border-bottom:none;padding-bottom:0;}
 .hero-stat-n{font-family:var(--display);font-size:clamp(40px,4vw,58px);font-weight:300;color:var(--coral);line-height:1;margin-bottom:var(--sp1);}
 .hero-stat-l{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.32);}
-.bridge{background:var(--light);padding:var(--sp7) 64px;text-align:center;}
-.bridge-inner{max-width:720px;margin:0 auto;}
+.bridge{background:var(--light);padding:var(--sp7) 64px;}
+.bridge-inner{max-width:780px;margin:0 auto;}
 .bridge-rule{width:1px;height:55px;background:linear-gradient(to bottom,transparent,var(--coral),transparent);margin:0 auto var(--sp6);}
-.bridge-h{font-family:var(--heading);font-size:clamp(22px,2.6vw,36px);font-weight:500;line-height:1.35;letter-spacing:-0.02em;color:var(--dark);margin-bottom:var(--sp4);}
+.bridge-h{font-family:var(--heading);font-size:clamp(22px,2.6vw,36px);font-weight:500;line-height:1.35;letter-spacing:-0.02em;color:var(--dark);margin-bottom:var(--sp5);text-align:center;}
 .bridge-h em{font-style:italic;font-weight:400;color:var(--mid-gray);}
-.bridge-sub{font-family:var(--body);font-size:17px;color:var(--mid-gray);line-height:1.618;max-width:560px;margin:0 auto;}
+.bridge-body{font-family:var(--body);font-size:17px;color:var(--mid-gray);line-height:1.618;}
+.bridge-body p{margin-bottom:var(--sp4);}
+.bridge-body p:last-child{margin-bottom:0;}
+.bridge-body strong{color:var(--dark);font-weight:500;}
 .about{background:var(--light);padding:0 64px var(--sp7);}
 .about-inner{max-width:1100px;margin:0 auto;}
 .about-rule{border:none;border-top:1px solid var(--border);margin-bottom:var(--sp6);}
@@ -107,7 +110,8 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
   .hero-inner{grid-template-columns:1fr;gap:var(--sp5);}
   .hero-stats{border-left:none;border-top:1px solid rgba(255,255,255,0.1);padding-left:0;padding-top:var(--sp4);display:flex;gap:var(--sp4);flex-wrap:wrap;}
   .hero-stat{padding:0;border:none;}
-  .bridge{padding:var(--sp6) 24px;}.about{padding:0 24px var(--sp6);}
+  .bridge{padding:var(--sp6) 24px;}
+  .about{padding:0 24px var(--sp6);}
   .about-grid{grid-template-columns:1fr;gap:var(--sp5);}
   .honest{padding:var(--sp6) 24px;}.honest-inner{grid-template-columns:1fr;gap:var(--sp4);}
   .closing{padding:var(--sp6) 24px;}.closing-inner{grid-template-columns:1fr;gap:var(--sp5);}
@@ -117,7 +121,6 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
 </style>
 </head>
 <body>
-
 <nav class="nav dark" id="nav">
   <a class="nav-name" href="index.html">Priyam Shah</a>
   <div class="nav-links">
@@ -126,7 +129,6 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
     <a class="nav-btn" href="tool.html">Platform</a>
   </div>
 </nav>
-
 <section class="hero">
   <div class="hero-grain"></div>
   <div class="hero-glow"></div>
@@ -134,7 +136,7 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
     <div>
       <span class="hero-role">Application &middot; Safeguards Policy Analyst, Fraud &amp; Scams &middot; Anthropic</span>
       <span class="hero-label">Financial Crime Investigation</span>
-      <h1 class="hero-h1">Eight years working fraud, scams, and money laundering at JPMorgan Chase and Citi produced a working understanding of the manipulation, deception, and victim exploitation that now define abuse on AI platforms.</h1>
+      <h1 class="hero-h1">Eight years investigating fraud, scams, and suspicious money movement at JPMorgan Chase and Citi produced a foundation for translating financial crime judgment into AI safeguards, policy language, and enforcement workflows.</h1>
       <p class="hero-sub">At every institution where I worked, the policies had already been written. At Anthropic, they are still being authored. I built this site to show I am ready to help write them.</p>
     </div>
     <div class="hero-stats">
@@ -153,15 +155,15 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
     </div>
   </div>
 </section>
-
 <section class="bridge fu">
   <div class="bridge-inner">
     <div class="bridge-rule"></div>
-    <h2 class="bridge-h">At JPMorgan and Citi, the policies were already written.<br><em>At Anthropic, they are being written right now.</em></h2>
-    <p class="bridge-sub">Owning that policy means protecting people before they become victims rather than documenting harm after it happened. I built this site to show how eight years of financial crime investigation translates directly into the work Anthropic's Safeguards Policy team is doing today.</p>
+    <h2 class="bridge-h">At JPMorgan and Citi, the policies were already written.<br><em>At Anthropic, they are still being authored.</em></h2>
+    <div class="bridge-body">
+      <p>My background is financial crime investigation, not AI policy. I come from the side where the harm has already happened — where the victim has already trusted the wrong person, the funds have already moved, and the report is written after the damage is done. This role moves that judgment earlier in the chain. That is the bridge I am trying to build with this site.</p>
+    </div>
   </div>
 </section>
-
 <section class="about" id="about">
   <div class="about-inner">
     <hr class="about-rule">
@@ -169,8 +171,8 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
       <div>
         <span class="sec-label">Background</span>
         <div class="body-text">
-          <p>I am a financial crime investigator with eight years across JPMorgan Chase and Citi, working fraud, scams, money laundering, market manipulation, brokerage AML, and sanctions evasion from across retail banking, commercial banking, and institutional markets. I have filed more than 500 Suspicious Activity Reports, processed subpoenas from the FBI, DOJ, and IRS, and investigated every major scheme that now appears in Anthropic's published misuse reports.</p>
-          <p>At Citi, I identified a manual triage problem that was consuming investigation time before any actual investigation began and built an automated solution using a structured AI prompt that scored and ranked every case by complexity, so investigators always knew which cases to work first.</p>
+          <p>I am a financial crime investigator with eight years across JPMorgan Chase and Citi, working fraud, scams, money laundering, market manipulation, brokerage AML, and sanctions evasion from across retail banking, commercial banking, and institutional markets. I have filed more than 500 Suspicious Activity Reports, processed subpoenas from the FBI, DOJ, and IRS, and investigated many of the same fraud, scam, money movement, and victim-exploitation patterns that now appear in AI-enabled abuse reports and published misuse data.</p>
+          <p>At Citi, I applied AI to the investigation workflow, designing a structured prompt that scored and ranked cases by complexity before any investigator opened a file. The prompt worked because it was built on investigative logic, not just automation.</p>
           <p>I entered this field because the people harmed by financial crime deserve better. Most of them never see it coming, and most are never made whole. AI has made that problem significantly harder to address through investigation alone. The response that changes outcomes is better policy, built earlier in the harm chain.</p>
         </div>
         <div class="cred-tags">
@@ -200,7 +202,6 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
     </div>
   </div>
 </section>
-
 <section class="honest fu">
   <div class="honest-inner">
     <div>
@@ -208,38 +209,34 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
       <h2 class="honest-heading">What I have done. What I have not yet done.</h2>
     </div>
     <div class="body-text">
-      <p>I have not formally authored enterprise-wide AI policy frameworks and I have not held a Trust and Safety title at a technology company. Those distinctions are real.</p>
-      <div class="callout">While I have not owned AI policy at scale, I have spent my career working inside policy-driven enforcement environments, applying rules to ambiguous facts, documenting decisions clearly, and identifying where existing guidance does not capture real-world risk. That is the discipline this role requires. The environment at Anthropic is new to me. The underlying work is not.</div>
-      <p>The parts I am actively building are the technical vocabulary around classifier design and enforcement pipeline architecture. This site is part of that process — a demonstration of that learning rather than a claim made on a resume.</p>
+      <p>I have not owned AI policy at scale. I have not worked inside a Trust and Safety policy team or managed model enforcement systems. Those distinctions matter and I am not claiming otherwise.</p>
+      <div class="callout">What I have done is work inside policy-driven enforcement environments, applying rules to ambiguous facts, documenting decisions clearly, identifying suspicious patterns, and recognizing where existing guidance does or does not capture real-world risk. The environment at Anthropic is new to me. The underlying judgment is not.</div>
+      <p>The parts I am actively building are the technical vocabulary around classifier design and enforcement pipeline architecture. This site and the platform behind it are part of that process — a demonstration of how that learning translates into policy thinking, not a claim that the work is already done.</p>
     </div>
   </div>
 </section>
-
 <div class="closing fu">
   <div class="closing-inner">
     <div>
       <span class="closing-label">Why Anthropic</span>
       <div class="closing-col">
-        <p>Anthropic publishes what is actually happening on its platform with a transparency uncommon at this scale. The schemes in its misuse reports are documented with the same specificity that financial crime investigators use when writing SARs. That tells me investigative experience will be treated as relevant expertise rather than as something adjacent to the real work.</p>
-        <p>That is the kind of environment where the work I want to do is actually possible.</p>
+        <p>Anthropic publishes what is actually happening on its platform with a transparency uncommon at this scale. The abuse patterns in its misuse reports reflect many of the same fraud typologies and victim-exploitation behaviors I investigated across eight years. That tells me investigative experience will be treated as relevant expertise here, not as something adjacent to the real work.</p>
       </div>
     </div>
     <div>
       <span class="closing-label">What I Am Bringing</span>
       <div class="closing-col">
-        <p>I have filed the SARs, worked the victims, traced the money, and documented the patterns across every major scheme in Anthropic's published reports. The most important thing those eight years produced is a clear understanding that the point of intervention determines the outcome. Catching harm at the point of generation rather than at the point of loss changes what is possible for real people. That is the work this role makes possible.</p>
+        <p>I have reviewed victim-centered cases, traced suspicious money movement, filed hundreds of SARs, and documented patterns across complex financial crimes, fraud, and scam investigations at JPMorgan Chase and Citi. I am not looking to leave that work behind. I am looking to move that judgment upstream — from identifying harm after it reaches people, to helping shape the safeguards that prevent it before it scales.</p>
       </div>
     </div>
   </div>
 </div>
-
 <div class="nav-bridge fu">
   <div class="nav-bridge-inner">
     <span class="nav-bridge-text">The typologies, threat analysis, and case investigations</span>
     <a class="nav-bridge-link" href="evidence.html">Read the analysis <span class="nav-bridge-arrow">&#8594;</span></a>
   </div>
 </div>
-
 <footer>
   <span class="ft-name">Priyam Shah</span>
   <div class="ft-links">
@@ -252,7 +249,6 @@ footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);paddin
     <a class="ft-link" href="resume.pdf" target="_blank">Resume</a>
   </div>
 </footer>
-
 <script>
 var heroH=0;
 function setHH(){var h=document.querySelector('.hero');if(h)heroH=h.offsetHeight;}

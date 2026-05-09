@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Priyam Shah — Financial Crime Investigation</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Poppins:wght@400;500;600&family=Lora:ital,wght@0,400;0,500;1,400;1,500&family=DM+Mono:wght@300;400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --dark:#141413;--light:#faf9f5;--light-gray:#e8e6dc;--mid-gray:#6e6c68;
+  --border:#e8e6dc;--coral:#d97757;
+  --display:'Cormorant Garamond',Georgia,serif;
+  --heading:'Poppins',Arial,sans-serif;
+  --body:'Lora',Georgia,serif;
+  --mono:'DM Mono',Consolas,monospace;
+  --sp1:8px;--sp2:13px;--sp3:21px;--sp4:34px;--sp5:55px;--sp6:89px;--sp7:144px;
+}
+html{scroll-behavior:smooth;}
+body{font-family:var(--body);background:var(--light);color:var(--dark);line-height:1.618;-webkit-font-smoothing:antialiased;}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;height:72px;display:flex;align-items:center;justify-content:space-between;padding:0 64px;transition:background 0.35s,border-color 0.35s;border-bottom:1px solid transparent;}
+.nav.dark{background:transparent;}
+.nav.dark.scrolled{background:rgba(20,20,19,0.96);backdrop-filter:blur(12px);border-bottom-color:rgba(255,255,255,0.06);}
+.nav.light{background:rgba(250,249,245,0.97);backdrop-filter:blur(12px);border-bottom-color:var(--border);}
+.nav-name{font-family:var(--heading);font-size:15px;font-weight:600;text-decoration:none;transition:color 0.2s;}
+.nav.dark .nav-name,.nav.dark.scrolled .nav-name{color:rgba(255,255,255,0.9);}
+.nav.light .nav-name{color:var(--dark);}
+.nav-links{display:flex;align-items:center;gap:var(--sp5);}
+.nav-link{font-family:var(--mono);font-size:12px;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;transition:color 0.2s;position:relative;padding-bottom:2px;}
+.nav-link::after{content:'';position:absolute;bottom:0;left:0;right:0;height:1px;background:var(--coral);transform:scaleX(0);transition:transform 0.2s;}
+.nav-link.active::after{transform:scaleX(1);}
+.nav.dark .nav-link,.nav.dark.scrolled .nav-link{color:rgba(255,255,255,0.45);}
+.nav.dark .nav-link:hover,.nav.dark.scrolled .nav-link:hover,.nav.dark .nav-link.active,.nav.dark.scrolled .nav-link.active{color:rgba(255,255,255,0.9);}
+.nav.light .nav-link{color:var(--mid-gray);}
+.nav.light .nav-link:hover,.nav.light .nav-link.active{color:var(--dark);}
+.nav-btn{font-family:var(--mono);font-size:12px;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;text-decoration:none;padding:10px 24px;border:1px solid;transition:all 0.2s;}
+.nav.dark .nav-btn,.nav.dark.scrolled .nav-btn{color:rgba(255,255,255,0.85);border-color:rgba(255,255,255,0.25);}
+.nav.dark .nav-btn:hover,.nav.dark.scrolled .nav-btn:hover{background:rgba(255,255,255,0.08);}
+.nav.light .nav-btn{color:var(--dark);border-color:var(--dark);}
+.nav.light .nav-btn:hover{background:var(--dark);color:var(--light);}
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:calc(72px + var(--sp7)) 64px var(--sp7);background:var(--dark);overflow:hidden;}
+.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:0.04;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");background-size:300px;}
+.hero-glow{position:absolute;top:-20%;left:-10%;width:60%;height:80%;background:radial-gradient(ellipse,rgba(217,119,87,0.06) 0%,transparent 70%);pointer-events:none;}
+.hero-inner{position:relative;z-index:1;width:100%;max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 0.55fr;gap:var(--sp7);align-items:center;}
+.hero-role{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.45);margin-bottom:var(--sp2);display:block;}
+.hero-label{font-family:var(--mono);font-size:11px;font-weight:300;letter-spacing:0.22em;text-transform:uppercase;color:var(--coral);margin-bottom:var(--sp5);display:block;}
+.hero-h1{font-family:var(--display);font-size:clamp(32px,3.8vw,52px);font-weight:300;line-height:1.18;letter-spacing:-0.02em;color:rgba(255,255,255,0.95);margin-bottom:var(--sp4);}
+.hero-sub{font-family:var(--display);font-size:clamp(18px,1.8vw,24px);font-weight:300;font-style:italic;line-height:1.618;color:rgba(255,255,255,0.65);}
+.hero-stats{border-left:1px solid rgba(255,255,255,0.1);padding-left:var(--sp5);}
+.hero-stat{padding:var(--sp4) 0;border-bottom:1px solid rgba(255,255,255,0.07);}
+.hero-stat:first-child{padding-top:0;}
+.hero-stat:last-child{border-bottom:none;padding-bottom:0;}
+.hero-stat-n{font-family:var(--display);font-size:clamp(40px,4vw,58px);font-weight:300;color:var(--coral);line-height:1;margin-bottom:var(--sp1);}
+.hero-stat-l{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:0.16em;text-transform:uppercase;color:rgba(255,255,255,0.52);}
+.bridge{background:var(--light);padding:var(--sp7) 64px;}
+.bridge-inner{max-width:780px;margin:0 auto;}
+.bridge-rule{width:1px;height:55px;background:linear-gradient(to bottom,transparent,var(--coral),transparent);margin:0 auto var(--sp6);}
+.bridge-h{font-family:var(--heading);font-size:clamp(22px,2.6vw,36px);font-weight:500;line-height:1.35;letter-spacing:-0.02em;color:var(--dark);margin-bottom:var(--sp5);text-align:center;}
+.bridge-h em{font-style:italic;font-weight:400;color:var(--mid-gray);}
+.bridge-body{font-family:var(--body);font-size:17px;color:var(--mid-gray);line-height:1.618;}
+.bridge-body p{margin-bottom:var(--sp4);}
+.bridge-body p:last-child{margin-bottom:0;}
+.bridge-body strong{color:var(--dark);font-weight:500;}
+.about{background:var(--light);padding:0 64px var(--sp7);}
+.about-inner{max-width:1100px;margin:0 auto;}
+.about-rule{border:none;border-top:1px solid var(--border);margin-bottom:var(--sp6);}
+.about-grid{display:grid;grid-template-columns:1fr 0.618fr;gap:var(--sp7);align-items:start;}
+.sec-label{font-family:var(--mono);font-size:11px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:var(--coral);margin-bottom:var(--sp4);display:block;}
+.body-text{font-family:var(--body);font-size:16px;line-height:1.618;color:var(--dark);}
+.body-text p{margin-bottom:var(--sp4);}
+.body-text p:last-child{margin-bottom:0;}
+.cred-tags{display:flex;gap:var(--sp2);flex-wrap:wrap;margin-top:var(--sp4);}
+.cred-tag{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:0.08em;text-transform:uppercase;color:var(--mid-gray);border:1px solid var(--border);padding:var(--sp1) var(--sp3);}
+.perf-stat{padding:var(--sp4) 0;border-bottom:1px solid var(--border);}
+.perf-stat:first-child{border-top:1px solid var(--border);}
+.perf-n{font-family:var(--display);font-size:clamp(40px,4vw,56px);font-weight:300;color:var(--coral);line-height:1;margin-bottom:var(--sp2);}
+.perf-l{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:var(--dark);display:block;margin-bottom:var(--sp1);}
+.perf-s{font-family:var(--body);font-size:13px;color:var(--mid-gray);line-height:1.6;}
+.honest{background:var(--light-gray);padding:var(--sp7) 64px;}
+.honest-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:0.618fr 1fr;gap:var(--sp7);align-items:start;}
+.honest-heading{font-family:var(--heading);font-size:clamp(20px,2.2vw,30px);font-weight:500;line-height:1.3;color:var(--dark);letter-spacing:-0.02em;margin-top:var(--sp2);}
+.callout{border-left:2px solid var(--coral);padding:var(--sp4) var(--sp5);margin:var(--sp5) 0;background:var(--light);font-family:var(--display);font-size:clamp(18px,1.8vw,22px);font-style:italic;color:var(--dark);line-height:1.618;}
+.closing{background:var(--dark);padding:var(--sp7) 64px;}
+.closing-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:var(--sp7);align-items:start;}
+.closing-label{font-family:var(--mono);font-size:11px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.52);margin-bottom:var(--sp4);display:block;}
+.closing-col{font-family:var(--body);font-size:clamp(15px,1.6vw,18px);color:rgba(255,255,255,0.82);line-height:1.618;}
+.closing-col p{margin-bottom:var(--sp3);}
+.closing-col p:last-child{margin-bottom:0;}
+.plat-highlight{background:var(--dark);padding:var(--sp6) 64px;border-top:1px solid rgba(255,255,255,0.07);}
+.plat-highlight-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:var(--sp5);flex-wrap:wrap;}
+.plat-highlight-left{max-width:580px;}
+.plat-highlight-label{font-family:var(--mono);font-size:10px;font-weight:300;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.52);margin-bottom:var(--sp2);display:block;}
+.plat-highlight-title{font-family:var(--heading);font-size:clamp(18px,2vw,26px);font-weight:500;color:rgba(255,255,255,0.95);margin-bottom:var(--sp3);letter-spacing:-0.01em;line-height:1.3;}
+.plat-highlight-desc{font-family:var(--body);font-size:15px;color:rgba(255,255,255,0.65);line-height:1.618;}
+.btn-plat{font-family:var(--mono);font-size:12px;font-weight:300;letter-spacing:0.1em;text-transform:uppercase;color:var(--light);background:var(--coral);border:none;padding:14px 32px;cursor:pointer;text-decoration:none;display:inline-block;flex-shrink:0;transition:opacity 0.2s;}
+.btn-plat:hover{opacity:0.88;}
+.nav-bridge{background:var(--dark);padding:var(--sp4) 64px;border-top:1px solid rgba(255,255,255,0.05);}
+.nav-bridge-inner{max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;gap:var(--sp5);flex-wrap:wrap;}
+.nav-bridge-text{font-family:var(--body);font-size:15px;font-style:italic;color:rgba(255,255,255,0.52);}
+.nav-bridge-link{font-family:var(--mono);font-size:12px;font-weight:300;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.82);text-decoration:none;display:flex;align-items:center;gap:var(--sp3);white-space:nowrap;transition:gap 0.25s ease;}
+.nav-bridge-link:hover{gap:var(--sp5);color:rgba(255,255,255,0.95);}
+.nav-bridge-arrow{color:var(--coral);font-size:18px;}
+footer{background:var(--dark);border-top:1px solid rgba(255,255,255,0.08);padding:var(--sp5) 64px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:var(--sp4);}
+.ft-name{font-family:var(--heading);font-size:14px;font-weight:500;color:rgba(255,255,255,0.7);}
+.ft-links{display:flex;gap:var(--sp4);align-items:center;flex-wrap:wrap;}
+.ft-link{font-family:var(--mono);font-size:11px;font-weight:300;letter-spacing:0.08em;color:rgba(255,255,255,0.58);text-decoration:none;transition:color 0.2s;}
+.ft-link:hover{color:rgba(255,255,255,0.92);}
+.ft-sep{color:rgba(255,255,255,0.15);}
+.fu{opacity:0;transform:translateY(16px);transition:opacity 0.65s ease,transform 0.65s ease;}
+.fu.in{opacity:1;transform:translateY(0);}
+@media(max-width:900px){
+  .nav{padding:0 24px;}.nav-links{gap:12px;}
+  .nav-link{font-size:10px;letter-spacing:0.06em;}
+  .nav-btn{padding:8px 14px;font-size:10px;letter-spacing:0.06em;}
+  .hero{padding:calc(72px + 60px) 24px 60px;}
+  .hero-inner{grid-template-columns:1fr;gap:var(--sp5);}
+  .hero-stats{border-left:none;border-top:1px solid rgba(255,255,255,0.1);padding-left:0;padding-top:var(--sp4);display:flex;gap:var(--sp4);flex-wrap:wrap;}
+  .hero-stat{padding:0;border:none;}
+  .bridge{padding:var(--sp6) 24px;}
+  .about{padding:0 24px var(--sp6);}
+  .about-grid{grid-template-columns:1fr;gap:var(--sp5);}
+  .honest{padding:var(--sp6) 24px;}.honest-inner{grid-template-columns:1fr;gap:var(--sp4);}
+  .closing{padding:var(--sp6) 24px;}.closing-inner{grid-template-columns:1fr;gap:var(--sp5);}
+  .plat-highlight{padding:var(--sp5) 24px;}.plat-highlight-inner{flex-direction:column;align-items:flex-start;}
+  .nav-bridge{padding:var(--sp4) 24px;}.nav-bridge-inner{flex-direction:column;align-items:flex-start;gap:var(--sp3);}
+  footer{padding:var(--sp4) 24px;}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav dark" id="nav">
+  <a class="nav-name" href="index.html">Priyam Shah</a>
+  <div class="nav-links">
+    <a class="nav-link active" href="index.html">Story</a>
+    <a class="nav-link" href="evidence.html">Evidence</a>
+    <a class="nav-btn" href="tool.html">Platform</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-grain"></div>
+  <div class="hero-glow"></div>
+  <div class="hero-inner">
+    <div>
+      <span class="hero-role">Application &middot; Safeguards Policy Analyst, Fraud &amp; Scams &middot; Anthropic</span>
+      <span class="hero-label">Financial Crime Investigation</span>
+      <h1 class="hero-h1">Eight years investigating fraud, scams, and suspicious money movement at JPMorgan Chase and Citi produced a foundation for translating financial crime judgment into AI safeguards, policy language, and enforcement workflows.</h1>
+      <p class="hero-sub">At every institution where I worked, the policies had already been written. At Anthropic, they are still being authored. I built this site to show I am ready to help write them.</p>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <div class="hero-stat-n">8</div>
+        <div class="hero-stat-l">Years in Financial Crime</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">500+</div>
+        <div class="hero-stat-l">Suspicious Activity Reports Filed</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-n">10+</div>
+        <div class="hero-stat-l">Typologies Investigated</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bridge fu">
+  <div class="bridge-inner">
+    <div class="bridge-rule"></div>
+    <h2 class="bridge-h">At JPMorgan and Citi, the policies were already written.<br><em>At Anthropic, they are still being authored.</em></h2>
+    <div class="bridge-body">
+      <p>My background is financial crime investigation, not AI policy. I come from the side where the harm has already happened, where the victim has already trusted the wrong person, the funds have already moved, and the report is written after the damage is done. This role moves that judgment earlier in the chain.</p>
+      <p>I have spent my career building judgment in financial crime investigations, and I know the damage fraud and scams cause when people lose not just money, but trust. AI is where this fight is moving next, and helping shape policies that protect people at that scale is the kind of work that genuinely matters to me.</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="about-inner">
+    <hr class="about-rule">
+    <div class="about-grid fu">
+      <div>
+        <span class="sec-label">Background</span>
+        <div class="body-text">
+          <p>I am a financial crime investigator across JPMorgan Chase and Citi, working fraud, scams, money laundering, market manipulation, brokerage AML, and sanctions evasion from across retail banking, commercial banking, and institutional markets. I have filed more than 500 Suspicious Activity Reports, processed subpoenas from the FBI, DOJ, and IRS, and spent my career studying how bad actors move money, exploit trust, and hide abuse inside complex systems.</p>
+          <p>At Citi, I investigate suspicious activity across brokerage accounts, asset management firms, and institutional clients, covering Prime Brokerage, FX, Repo, and Margin. This includes market manipulation, insider trading, layering, and coordinated trading patterns that would not be visible in a traditional retail banking investigation.</p>
+          <p>I also applied AI to the investigation workflow, designing a structured prompt that scored and ranked cases by complexity before any investigator opened a file. The prompt worked because it was built on investigative logic, not just automation. The real value was not the prompt itself — it was the investigative logic behind it.</p>
+        </div>
+        <div class="cred-tags">
+          <span class="cred-tag">CAMS &middot; Anti-Money Laundering Specialist</span>
+          <span class="cred-tag">TRM-CCS &middot; Crypto Compliance Specialist</span>
+        </div>
+      </div>
+      <div>
+        <div class="perf-stat">
+          <div class="perf-n">97%</div>
+          <span class="perf-l">Quality Rate &middot; Top 3 Firmwide</span>
+          <div class="perf-s">JPMorgan Chase</div>
+        </div>
+        <div class="perf-stat">
+          <div class="perf-n">110+</div>
+          <span class="perf-l">Subpoenas Reviewed Weekly</span>
+          <div class="perf-s">FBI &middot; DOJ &middot; IRS &middot; State &amp; Local Law Enforcement spanning AML, Fraud, Scams, Healthcare Fraud &amp; Terrorist Financing</div>
+        </div>
+        <div class="perf-stat">
+          <div class="perf-n">2&times;</div>
+          <span class="perf-l">Blue Ribbon Award &middot; 2021 &amp; 2022</span>
+          <div class="perf-s">Highest quality and throughput among financial crime investigators at JPMorgan Chase</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="honest fu">
+  <div class="honest-inner">
+    <div>
+      <span class="sec-label">Honest Assessment</span>
+      <h2 class="honest-heading">What I have done. What I have not yet done.</h2>
+    </div>
+    <div class="body-text">
+      <p>I have not owned AI policy at scale. I have not worked inside a Trust and Safety policy team or managed model enforcement systems. Those distinctions matter and I am not claiming otherwise.</p>
+      <div class="callout">What I have done is work inside policy-driven enforcement environments, applying rules to ambiguous facts, documenting decisions clearly, identifying suspicious patterns, and recognizing where existing guidance does or does not capture real-world risk. The environment at Anthropic is new to me. The underlying judgment is not.</div>
+      <p>The parts I am actively building are the technical vocabulary around classifier design and enforcement pipeline architecture. This site and the platform behind it are part of that process — a demonstration of how that learning translates into policy thinking, not a claim that the work is already done.</p>
+    </div>
+  </div>
+</section>
+
+<div class="closing fu">
+  <div class="closing-inner">
+    <div>
+      <span class="closing-label">Why Anthropic</span>
+      <div class="closing-col">
+        <p>Anthropic documents what is actually happening on its platform with the same specificity I used when writing SARs. The abuse patterns in its published reports are the same typologies I investigated at JPMorgan and Citi. That alignment tells me this team understands the problem from the inside. Investigative experience will matter here.</p>
+      </div>
+    </div>
+    <div>
+      <span class="closing-label">What I Am Bringing</span>
+      <div class="closing-col">
+        <p>I am not looking to leave that work behind. I am looking to move it upstream — from documenting harm after it reaches people, to helping write the policies that stop it before it does.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="plat-highlight fu">
+  <div class="plat-highlight-inner">
+    <div class="plat-highlight-left">
+      <span class="plat-highlight-label">Fraud &amp; Scam Policy Prototype</span>
+      <h2 class="plat-highlight-title">I built a working enforcement tool to show how this investigative thinking operates in practice.</h2>
+      <p class="plat-highlight-desc">It analyzes fraud scenarios, generates policy language by typology, identifies gaps in current usage policy, and logs enforcement decisions. No API key required to explore it.</p>
+    </div>
+    <a class="btn-plat" href="tool.html">Open the Platform</a>
+  </div>
+</div>
+
+<div class="nav-bridge fu">
+  <div class="nav-bridge-inner">
+    <span class="nav-bridge-text">The typologies, threat analysis, and case investigations</span>
+    <a class="nav-bridge-link" href="evidence.html">Read the analysis <span class="nav-bridge-arrow">&#8594;</span></a>
+  </div>
+</div>
+
+<footer>
+  <span class="ft-name">Priyam Shah</span>
+  <div class="ft-links">
+    <a class="ft-link" href="mailto:priyamkshah@gmail.com">priyamkshah@gmail.com</a>
+    <span class="ft-sep">&middot;</span>
+    <a class="ft-link" href="tel:9082393735">(908) 239-3735</a>
+    <span class="ft-sep">&middot;</span>
+    <a class="ft-link" href="https://www.linkedin.com/in/priyamshah29/" target="_blank" rel="noopener">LinkedIn</a>
+  </div>
+</footer>
+
+<script>
+var heroH=0;
+function setHH(){var h=document.querySelector('.hero');if(h)heroH=h.offsetHeight;}
+setHH();window.addEventListener('resize',setHH);
+window.addEventListener('scroll',function(){
+  var nav=document.getElementById('nav');
+  var past=window.scrollY>heroH-80;
+  var scrolled=window.scrollY>40;
+  if(past){nav.className='nav light';}
+  else if(scrolled){nav.className='nav dark scrolled';}
+  else{nav.className='nav dark';}
+});
+var obs=new IntersectionObserver(function(entries){
+  entries.forEach(function(e){if(e.isIntersecting)e.target.classList.add('in');});
+},{threshold:0.06,rootMargin:'0px 0px -20px 0px'});
+document.querySelectorAll('.fu').forEach(function(el){obs.observe(el);});
+</script>
+</body>
+</html>
